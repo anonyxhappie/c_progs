@@ -13,11 +13,11 @@
  *	S.no.	Country		No. of Players(decending order)
  *
  *	Case 2. Display 25 counries name
- 	Press any key -> display 50 countries name
- *  	Backspace -> 25 countries
+ *	Press any key -> display 50 countries name
+ *  Backspace -> 25 countries
  *  
- *  	Case 3. Display record as---
- *  	S.no.(starting from one for every country)	Country(alphabatical order - 1st priority)		Player name		Batting Average(decreasing order - 2nd priority)
+ *  Case 3. Display record as---
+ *  S.no.(starting from one for every country)	Country(alphabatical order - 1st priority)		Player name		Batting Average(decreasing order - 2nd priority)
  */
 void inputRecord();
 void recordDisplay();
@@ -174,7 +174,7 @@ void sortCpr(){
 void swapInt(int i, int j){
 	//this function is to swap two numbers
 	int temp;
-temp = cpr[i].playerCount;
+	temp = cpr[i].playerCount;
 	cpr[i].playerCount = cpr[j].playerCount;
 	cpr[j].playerCount = temp;
 	return;
