@@ -13,11 +13,11 @@
  *	S.no.	Country		No. of Players(decending order)
  *
  *	Case 2. Display 25 counries name
- *  Press any key -> display 50 countries name
- *  Backspace -> 25 countries
+ 	Press any key -> display 50 countries name
+ *  	Backspace -> 25 countries
  *  
- *  Case 3. Display record as---
- *  S.no.	Country(alphabatical order)		Player name		Batting Average
+ *  	Case 3. Display record as---
+ *  	S.no.	Country(alphabatical order)		Player name		Batting Average
  */
 #include<stdio.h>
 #include<string.h>
@@ -76,13 +76,13 @@ int main(){
 					}
 				 }
 				 getch();
-    	         system("clear");
+    	         		 system("clear");
 			 	 break;
 			case 3:
 				 printf("\nS.No.\tCountry\tPlayer\tAverage\n");
 				 displayAlpha();
 				 getch();
-    	         system("clear");                            
+    	         		 system("clear");                            
 				 break;
 			default:	 
 				 printf("\nEnter correct choice.\n");
@@ -122,11 +122,9 @@ void recordDisplay(){
 /*------Functions for Case 1 starts from here-----*/
 int ifExist(int i){
 	int j;
-	for(j=0; j<i; j++){
-	 	if(strcmp(record[i].countryName, record[j].countryName) == 0){
+	for(j=0; j<i; j++)
+	 	if(strcmp(record[i].countryName, record[j].countryName) == 0)
 	 		return 1;
-		 }
-    }
 	return 0;
 }
 
