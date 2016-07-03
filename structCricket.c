@@ -135,16 +135,11 @@ void playerCountf(){
 	strcpy(cpr[0].countryName, record[0].countryName);
 	cpr[0].playerCount = 1;
 	for(i=1; i<n; i++){
-	    if(ifExist(i)){
-	    	continue;
-		}
-		k++;	
-	 	strcpy(cpr[k].countryName, record[i].countryName);		
-		for(j=i; j<n; j++){
-			if(strcmp(cpr[k].countryName, record[j].countryName) == 0){
+	    if(ifExist(i)) continue;
+	 	strcpy(cpr[k++].countryName, record[i].countryName);		
+		for(j=i; j<n; j++)
+			if(strcmp(cpr[k].countryName, record[j].countryName) == 0)
 				cpr[k].playerCount++;
-			}
-		}	
 	}
 	cpr_max_limit = k;
 	return;
@@ -156,13 +151,12 @@ void sortCpr(){
 	//in decending order of players in each country
 	 int i, j;
 	 for(i=0; i<cpr_max_limit; i++){
-		   for(j=i+1; j<cpr_max_limit; j++){
-			  if(cpr[j].playerCount > cpr[i].playerCount){
-				swapInt(i, j); 
- 				swapString(i, j);
-			  }
-		   }		   	
-     printf("\n%d.\t%s\t%d\n",i+1 , cpr[i].countryName, cpr[i].playerCount);
+	        for(j=i+1; j<cpr_max_limit; j++)
+		   if(cpr[j].playerCount > cpr[i].playerCount){
+			swapInt(i, j); 
+ 			swapString(i, j);
+		   }
+     		printf("\n%d.\t%s\t%d\n",i+1 , cpr[i].countryName, cpr[i].playerCount);
 	 }
 	 return;
 }
