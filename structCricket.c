@@ -90,15 +90,14 @@ void playerCountf(){
 	}
 	return;
 }
-
+/*In progress...*/
 void sortcpr(){
 	 int i, j;
 	 for(i=0; i<cpr_max_limit; i++){
-	 	getch();
 		   for(j=i+1; j<cpr_max_limit; j++){
 			  if(cpr[j].playerCount > cpr[i].playerCount){
-				  swapInt(i, j); 
-           		  swapString(i, j);
+				swapInt(i, j); 
+           		  	swapString(i, j);
 			  }
 		   }
 	 }
