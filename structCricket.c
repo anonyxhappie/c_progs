@@ -17,7 +17,7 @@
  *  	Backspace -> 25 countries
  *  
  *  	Case 3. Display record as---
- *  	S.no.	Country(alphabatical order)		Player name		Batting Average
+ *  	S.no.(starting from one for every country)	Country(alphabatical order - 1st priority)		Player name		Batting Average(decreasing order - 2nd priority)
  */
 void inputRecord();
 void recordDisplay();
@@ -50,17 +50,17 @@ int main(){
 	record[0].battingAverage = 43.87;
 	printf("\n");
 
-	//inputRecord();
-    //getch();
+	inputRecord();
+    getch();
     system("clear");
-    for(i=1; i<n;i+=2){
+    /*for(i=1; i<n;i+=2){
 		strcpy(record[i].playerName, "Watson");
 		strcpy(record[i].countryName, "Aus");
 		record[i].battingAverage = 43.87;
 		strcpy(record[i+1].playerName, "Taylor");
 		strcpy(record[i+1].countryName, "NZ");
 		record[i+1].battingAverage = 44.25;
-    }
+    }*/
     recordDisplay();
     getch();
     system("clear");
@@ -95,6 +95,7 @@ int main(){
 		case 3:
 			 printf("\nCountries");
              playerCountf();
+             averageSort();
              displayAlpha();
 			 getch();
 	         system("clear");
@@ -154,7 +155,6 @@ void playerCountf(){
 	return;
 }
 
-/*In progress...*/
 void sortCpr(){
 	//this function is for displaying the cpr record 
 	//in decending order of players in each country
@@ -174,7 +174,7 @@ void sortCpr(){
 void swapInt(int i, int j){
 	//this function is to swap two numbers
 	int temp;
-	temp = cpr[i].playerCount;
+temp = cpr[i].playerCount;
 	cpr[i].playerCount = cpr[j].playerCount;
 	cpr[j].playerCount = temp;
 	return;
@@ -194,10 +194,15 @@ void swapString(int i, int j){
 void displayAlpha(){
 	//this function is to display the record in tabular form
 	//Note: countries should be in alphabatical order
-	int i;
+	int i, j, k;
 	stringAlphaSort();
     for(i=1; i<=cpr_max_limit; i++){
-        printf("\n%d.%s", i, cpr[i].countryName);
+        k=0;
+        for(j=0; j<n; j++){
+            if(strcmp(record[j].countryName, cpr[i].countryName)==0){
+                printf("\n%d.\t%s\t%s\t%.2f\n", ++k, record[j].countryName, record[j].playerName, record[j].battingAverage);
+            }
+        }
     }
 	return;
 }
@@ -240,6 +245,40 @@ void stringCompare(int x, int y){
 	strcpy(cpr[y].countryName, strb);
     return;
 }
+
+void averageSort(){
+	//this function is for displaying the cpr record
+	//in decending order of players in each country
+	 int i, j;
+	 for(i=0; i<n; i++){
+	        for(j=i+1; j<n; j++){
+                if(record[j].battingAverage > record[i].battingAverage){
+                    swapAverage(i, j);
+ 			        swapCountryAndPlayer(i, j);
+ 			    }
+            }
+     }
+	 return;
+}
+
+void swapAverage(int i, int j){
+    float temp;
+    temp = record[i].battingAverage;
+    record[i].battingAverage = record[j].battingAverage;
+    record[j].battingAverage = temp;
+}
+
+void swapCountryAndPlayer(int i, int j){
+     char * temp;
+     strcpy(temp, record[i].countryName);
+     strcpy(record[i].countryName, record[j].countryName);
+     strcpy(record[j].countryName, temp);
+
+     strcpy(temp, record[i].playerName);
+     strcpy(record[i].playerName, record[j].playerName);
+     strcpy(record[j].playerName, temp);
+}
+
 /*------Functions for Case 3 end here-----*/
 
 
