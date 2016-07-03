@@ -19,6 +19,16 @@
  *  	Case 3. Display record as---
  *  	S.no.	Country(alphabatical order)		Player name		Batting Average
  */
+void inputRecord();
+void recordDisplay();
+int ifExist(int);
+void playerCountf();
+void sortCpr();
+void swapInt(int, int);
+void swapString(int, int);
+void displayAlpha();
+void stringAlphaSort();
+void stringCompare(int, int);
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -35,7 +45,6 @@ struct countryPlayer{
 
 int main(){
 	int i, choice;
-	char ch;
 	strcpy(record[0].playerName, "Sachin");
 	strcpy(record[0].countryName, "India");
 	record[0].battingAverage = 43.87;
@@ -49,8 +58,7 @@ int main(){
 		strcpy(record[i+1].countryName, "NZ");
 		record[i+1].battingAverage = 44.25;
 	}
-	
-	do{
+
         printf("\nEnter your choice(1,2,3)\n");
 		scanf("%d", &choice);
 		switch(choice){
@@ -76,22 +84,19 @@ int main(){
 					}
 				 }
 				 getch();
-    	         		 system("clear");
+    	         system("clear");
 			 	 break;
 			case 3:
-				 printf("\nS.No.\tCountry\tPlayer\tAverage\n");
-				 displayAlpha();
+				 printf("\nCountry\n");
+                 playerCountf();
+                 displayAlpha();
 				 getch();
-    	         		 system("clear");                            
+  		         system("clear");
 				 break;
 			default:	 
 				 printf("\nEnter correct choice.\n");
 		}
-		printf("\nAnother try?(y/n):");
-		fflush(stdin);
-		scanf("%c", &ch);	
-	}while(ch == 'y'); 
-	
+
 	return 0;
 }
 
@@ -132,14 +137,13 @@ void playerCountf(){
 	//counts the number of players in each country
 	int i, j;
 	k=0;
-	strcpy(cpr[0].countryName, record[0].countryName);
-	cpr[0].playerCount = 1;
-	for(i=1; i<n; i++){
+	for(i=0; i<n; i++){
 	    if(ifExist(i)) continue;
-	 	strcpy(cpr[k++].countryName, record[i].countryName);		
+	 	strcpy(cpr[k].countryName, record[i].countryName);
 		for(j=i; j<n; j++)
 			if(strcmp(cpr[k].countryName, record[j].countryName) == 0)
 				cpr[k].playerCount++;
+        k++;
 	}
 	cpr_max_limit = k;
 	return;
@@ -151,11 +155,13 @@ void sortCpr(){
 	//in decending order of players in each country
 	 int i, j;
 	 for(i=0; i<cpr_max_limit; i++){
-	        for(j=i+1; j<cpr_max_limit; j++)
-		   if(cpr[j].playerCount > cpr[i].playerCount){
-			swapInt(i, j); 
- 			swapString(i, j);
-		   }
+	        for(j=i+1; j<=cpr_max_limit; j++){
+                if(j==cpr_max_limit) break;
+                if(cpr[j].playerCount > cpr[i].playerCount){
+                    swapInt(i, j);
+ 			        swapString(i, j);
+                }
+            }
      		printf("\n%d.\t%s\t%d\n",i+1 , cpr[i].countryName, cpr[i].playerCount);
 	 }
 	 return;
@@ -184,7 +190,51 @@ void swapString(int i, int j){
 void displayAlpha(){
 	//this function is to display the record in tabular form
 	//Note: countries should be in alphabatical order
+	int i;
+	stringAlphaSort();
+    for(i=0; i<=cpr_max_limit; i++){
+        printf("\n%s", cpr[i].countryName);
+    }
 	return;
+}
+
+void stringAlphaSort(){
+    int i, j;
+    for(i=0; i<=cpr_max_limit; i++){
+		for(j=i+1; j<=cpr_max_limit; j++){
+			stringCompare(i, j);
+		}
+	}
+}
+
+void stringCompare(int x, int y){
+    char str1[50], str2[50], stra[50], strb[50];
+    strcpy(str1, cpr[x].countryName);
+    strcpy(str2, cpr[y].countryName);
+    int i, len;
+	if(strlen(str1) > strlen(str2)){
+	    len = strlen(str2);
+        strcpy(stra, str2);
+        strcpy(strb, str1);
+    } else{
+        len = strlen(str1);
+        strcpy(stra, str1);
+        strcpy(strb, str2);
+    }
+	for(i=0; i<len; i++){
+		if(str1[i] < str2[i]){
+             strcpy(stra, str1);
+             strcpy(strb, str2);
+             break;
+		}else if(str2[i] < str1[i]){
+             strcpy(stra, str2);
+             strcpy(strb, str1);
+             break;
+        }
+	}
+	strcpy(cpr[x].countryName, stra);
+	strcpy(cpr[y].countryName, strb);
+    return;
 }
 /*------Functions for Case 3 end here-----*/
 
