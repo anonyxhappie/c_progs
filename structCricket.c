@@ -1,3 +1,24 @@
+/**
+ * Created by anonyxhappie on 03-07-2016.
+ */
+/**
+ *	Create a structure cricket consisting of 3 data elements as 
+ *	countryName[50], playerName[50], battingAverage(float)
+ *	Input the details of 50 players and obtain the following task.
+ *	The order of input is 
+ *	country, player, average
+ *	Sachin Tendulkar under India already exist.
+ *
+ *	Case 1. Should get the report as follows---
+ *	S.no.	Country		No. of Players(decending order)
+ *
+ *	Case 2. Display 25 counries name
+ *  Press any key -> display 50 countries name
+ *  Backspace -> 25 countries
+ *  
+ *  Case 3. Display record as---
+ *  S.no.	Country(alphabatical order)		Player name		Batting Average
+ */
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
