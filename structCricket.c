@@ -26,13 +26,11 @@ int main(){
 		strcpy(record[i+1].playerName, "Taylor");
 		strcpy(record[i+1].countryName, "NZ");
 		record[i+1].battingAverage = 44.25;
-		
-	
 	}
 	
 	playerCountf();
 	cpr_max_limit = k; 
-	sortcpr();
+	sortCpr();
 	
 	printf("\nS.No.\tCountry\tPlayers");
 	for(i=0; i<=cpr_max_limit; i++)	printf("\n%d.\t%s\t%d\n",i+1 , cpr[i].countryName, cpr[i].playerCount);
@@ -40,7 +38,7 @@ int main(){
 	return 0;
 }
 
-void input_record(){
+void inputRecord(){
 	int i;
 	for(i=1; i<n; i++){
 		printf("\n%d.Enter player name: ", i+1);
@@ -52,7 +50,7 @@ void input_record(){
 	} 
 }
 
-void record_display(){
+void recordDisplay(){
 	int i;
 	printf("\n");
 	for(i=0; i<n; i++){
@@ -91,7 +89,7 @@ void playerCountf(){
 	return;
 }
 /*In progress...*/
-void sortcpr(){
+void sortCpr(){
 	 int i, j;
 	 for(i=0; i<cpr_max_limit; i++){
 		   for(j=i+1; j<cpr_max_limit; j++){
