@@ -1,19 +1,20 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<string.h>
-int n = 10, k, cpr_max_limit;
+#include<stdlib.h>
+int n = 50, k, cpr_max_limit;  //global variables
 struct cricket{
 	char countryName[50];
 	char playerName[50];
 	float battingAverage;
-}record[10];
-
+}record[50];
 struct countryPlayer{
 	char countryName[50];
 	int playerCount;
-}cpr[10];
+}cpr[50];
 
 int main(){
-	int i;
+	int i, choice;
+	char ch;
 	strcpy(record[0].playerName, "Sachin");
 	strcpy(record[0].countryName, "India");
 	record[0].battingAverage = 43.87;
@@ -28,16 +29,53 @@ int main(){
 		record[i+1].battingAverage = 44.25;
 	}
 	
-	playerCountf(); 
-	sortCpr();
-	
-	printf("\nS.No.\tCountry\tPlayers");
-	for(i=0; i<=cpr_max_limit; i++)	printf("\n%d.\t%s\t%d\n",i+1 , cpr[i].countryName, cpr[i].playerCount);
+	do{
+        printf("\nEnter your choice(1,2,3)\n");
+		scanf("%d", &choice);
+		switch(choice){
+			case 1:
+				 playerCountf();
+				 printf("\nS.No.\tCountry\tPlayers");
+				 sortCpr();
+				 getch();
+				 system("clear");
+				 break;
+		 	case 2:
+				 printf("\nCountries...\n");
+				 for(i=0; i<n/2; i++){
+				 	printf("%s\n", record[i].countryName);
+				 	if(i == 24){
+				 		printf("\nPress any key for more.");
+				 		getch();
+				 		n*=2;
+					 }
+				    if(i == 49){
+				    	if(getch() == '\b')	i = 0; 
+						else break;
+					}
+				 }
+				 getch();
+    	         system("clear");
+			 	 break;
+			case 3:
+				 printf("\nS.No.\tCountry\tPlayer\tAverage\n");
+				 displayAlpha();
+				 getch();
+    	         system("clear");                            
+				 break;
+			default:	 
+				 printf("\nEnter correct choice.\n");
+		}
+		printf("\nAnother try?(y/n):");
+		fflush(stdin);
+		scanf("%c", &ch);	
+	}while(ch == 'y'); 
 	
 	return 0;
 }
 
 void inputRecord(){
+	//get user input
 	int i;
 	for(i=1; i<n; i++){
 		printf("\n%d.Enter player name: ", i+1);
@@ -50,6 +88,7 @@ void inputRecord(){
 }
 
 void recordDisplay(){
+	//display the simple record
 	int i;
 	printf("\n");
 	for(i=0; i<n; i++){
@@ -58,6 +97,8 @@ void recordDisplay(){
 		printf("Batting average: %.2f\n", record[i].battingAverage);
 	}
 }
+
+/*------Functions for Case 1 starts from here-----*/
 int ifExist(int i){
 	int j;
 	for(j=0; j<i; j++){
@@ -69,6 +110,7 @@ int ifExist(int i){
 }
 
 void playerCountf(){
+	//counts the number of players in each country
 	int i, j;
 	k=0;
 	strcpy(cpr[0].countryName, record[0].countryName);
@@ -88,21 +130,26 @@ void playerCountf(){
 	cpr_max_limit = k;
 	return;
 }
+
 /*In progress...*/
 void sortCpr(){
+	//this function is for displaying the cpr record 
+	//in decending order of players in each country
 	 int i, j;
 	 for(i=0; i<cpr_max_limit; i++){
 		   for(j=i+1; j<cpr_max_limit; j++){
 			  if(cpr[j].playerCount > cpr[i].playerCount){
 				swapInt(i, j); 
-           		  	swapString(i, j);
+ 				swapString(i, j);
 			  }
-		   }
+		   }		   	
+     printf("\n%d.\t%s\t%d\n",i+1 , cpr[i].countryName, cpr[i].playerCount);
 	 }
 	 return;
 }
 
 void swapInt(int i, int j){
+	//this function is to swap two numbers
 	int temp;
 	temp = cpr[i].playerCount;
 	cpr[i].playerCount = cpr[j].playerCount;
@@ -111,13 +158,22 @@ void swapInt(int i, int j){
 }
 
 void swapString(int i, int j){
+	//this function is to swap two strings
 	char * c;
 	strcpy(c, cpr[i].countryName);
 	strcpy(cpr[i].countryName, cpr[j].countryName);
 	strcpy(cpr[j].countryName, c);
 	return;
 }
+/*------Functions for Case 1 end here-----*/
 
+/*------Functions for Case 3 starts from here-----*/
+void displayAlpha(){
+	//this function is to display the record in tabular form
+	//Note: countries should be in alphabatical order
+	return;
+}
+/*------Functions for Case 3 end here-----*/
 
 
 
