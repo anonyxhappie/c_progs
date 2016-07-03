@@ -32,7 +32,7 @@ void stringCompare(int, int);
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-int n = 50, k, cpr_max_limit;  //global variables
+int n = 10, k, cpr_max_limit;  //global variables
 struct cricket{
 	char countryName[50];
 	char playerName[50];
@@ -45,57 +45,63 @@ struct countryPlayer{
 
 int main(){
 	int i, choice;
-	strcpy(record[0].playerName, "Sachin");
+ strcpy(record[0].playerName, "Sachin");
 	strcpy(record[0].countryName, "India");
 	record[0].battingAverage = 43.87;
 	printf("\n");
-	
-	for(i=1; i<n;i+=2){
+
+	//inputRecord();
+    //getch();
+    system("clear");
+    for(i=1; i<n;i+=2){
 		strcpy(record[i].playerName, "Watson");
 		strcpy(record[i].countryName, "Aus");
 		record[i].battingAverage = 43.87;
 		strcpy(record[i+1].playerName, "Taylor");
 		strcpy(record[i+1].countryName, "NZ");
 		record[i+1].battingAverage = 44.25;
-	}
-
-        printf("\nEnter your choice(1,2,3)\n");
-		scanf("%d", &choice);
-		switch(choice){
-			case 1:
-				 playerCountf();
-				 printf("\nS.No.\tCountry\tPlayers");
-				 sortCpr();
-				 getch();
-				 system("clear");
-				 break;
-		 	case 2:
-				 printf("\nCountries...\n");
-				 for(i=0; i<n/2; i++){
-				 	printf("%s\n", record[i].countryName);
-				 	if(i == 24){
-				 		printf("\nPress any key for more.");
-				 		getch();
-				 		n*=2;
-					 }
-				    if(i == 49){
-				    	if(getch() == '\b')	i = 0; 
-						else break;
-					}
+    }
+    recordDisplay();
+    getch();
+    system("clear");
+    printf("\nEnter your choice(1,2,3)\n");
+	scanf("%d", &choice);
+	switch(choice){
+		case 1:
+			 playerCountf();
+			 printf("\nS.No.\tCountry\tPlayers");
+			 sortCpr();
+			 getch();
+			 system("clear");
+			 break;
+	 	case 2:
+			 printf("\nCountries...\n");
+			 for(i=0; i<n/2; i++){
+			 	printf("%s\n", record[i].countryName);
+                 if(n>50) break;
+                 else if(i == n-1){
+			    	if(getch() == '\b')	i = 0;
+					else break;
+				}
+                else if(i == (n/2)-1){
+			 		printf("\nPress any key for more.");
+			 		getch();
+			 		n*=2;
 				 }
-				 getch();
-    	         system("clear");
-			 	 break;
-			case 3:
-				 printf("\nCountry\n");
-                 playerCountf();
-                 displayAlpha();
-				 getch();
-  		         system("clear");
-				 break;
-			default:	 
-				 printf("\nEnter correct choice.\n");
-		}
+			 }
+			 getch();
+	         system("clear");
+		 	 break;
+		case 3:
+			 printf("\nCountries");
+             playerCountf();
+             displayAlpha();
+			 getch();
+	         system("clear");
+			 break;
+		default:
+			 printf("\nEnter correct choice.\n");
+	}
 
 	return 0;
 }
@@ -117,10 +123,9 @@ void recordDisplay(){
 	//display the simple record
 	int i;
 	printf("\n");
+	printf("\nS.no.\tPlayer\tAverage\tCountry\n");
 	for(i=0; i<n; i++){
-		printf("\n\tPlayer name: %s\t", record[i].playerName);
-		printf("Country name: %s\t", record[i].countryName);
-		printf("Batting average: %.2f\n", record[i].battingAverage);
+		printf("\n%d.\t%s\t%.2f\t%s\n", i+1, record[i].playerName, record[i].battingAverage, record[i].countryName);
 	}
 }
 
@@ -155,8 +160,7 @@ void sortCpr(){
 	//in decending order of players in each country
 	 int i, j;
 	 for(i=0; i<cpr_max_limit; i++){
-	        for(j=i+1; j<=cpr_max_limit; j++){
-                if(j==cpr_max_limit) break;
+	        for(j=i+1; j<cpr_max_limit; j++){
                 if(cpr[j].playerCount > cpr[i].playerCount){
                     swapInt(i, j);
  			        swapString(i, j);
@@ -192,8 +196,8 @@ void displayAlpha(){
 	//Note: countries should be in alphabatical order
 	int i;
 	stringAlphaSort();
-    for(i=0; i<=cpr_max_limit; i++){
-        printf("\n%s", cpr[i].countryName);
+    for(i=1; i<=cpr_max_limit; i++){
+        printf("\n%d.%s", i, cpr[i].countryName);
     }
 	return;
 }
