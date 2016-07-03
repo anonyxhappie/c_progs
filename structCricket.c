@@ -28,8 +28,7 @@ int main(){
 		record[i+1].battingAverage = 44.25;
 	}
 	
-	playerCountf();
-	cpr_max_limit = k; 
+	playerCountf(); 
 	sortCpr();
 	
 	printf("\nS.No.\tCountry\tPlayers");
@@ -86,6 +85,7 @@ void playerCountf(){
 			}
 		}	
 	}
+	cpr_max_limit = k;
 	return;
 }
 /*In progress...*/
