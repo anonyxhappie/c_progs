@@ -21,8 +21,10 @@ root->
 
 int main(){
 	TNODE * root = NULL;
-	//insert(root, 4);
-	buildTree(root, 10);
+	insert(root, 4);
+	insert(root, 6);
+	insert(root, 9);
+	//buildTree(root, 10);
 	inorder(root);
 	return 0;
 }
@@ -50,10 +52,13 @@ void buildTree(TNODE * traverse, int len){
 }
 
 void inorder(TNODE * traverse){
-	if(traverse){
+	printf("BOOM");
+	if(traverse!=NULL){
+		printf("Foo");
 		inorder(traverse->left);
 		printf(" %d j", traverse->data);
-		inorder(traverse->right);	
+		inorder(traverse->right);
+		printf("Bar");
 	}	
 }
 
