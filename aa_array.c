@@ -1,6 +1,13 @@
-#include<conio.h>
 #include<stdio.h>
-void main()
+int main(){
+	int i=0,arr[100];
+	while(scanf("%d", &arr[i]) && arr[i++]!='x');
+	printf("\n%d\n", i);
+	return 0;
+}
+
+
+/*void main()
 {
 	int i,j,arr[5],b[5];
 	for(i=0;i<5;i++)
@@ -23,7 +30,7 @@ void main()
 	}
 	for(i=0; i<5; i++) printf(" %d\n", b[i]);
 }
-
+*/
 
 
 

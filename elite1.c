@@ -31,8 +31,7 @@ int main(){
 		bdigits[i] = bdigits[blength-i-1];
 		bdigits[blength-i-1] = temp;
 	}
-	//middle
-	
+	//middle	
 	k=0, n = alength*blength;
 	for(i=blength-1; i>=0; i--, k++){
 		//initializing x to 0

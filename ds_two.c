@@ -8,57 +8,71 @@ struct tnode{
 };
 typedef struct tnode TNODE;
 
-void insert(TNODE *, int);
-void buildTree(TNODE *, int);
+TNODE * insert(TNODE *, int);
+TNODE * buildTree(TNODE *, int);
 void inorder(TNODE *);
-
-/*
-
-root-->x---->[]
-x->data
-root->
-*/
 
 int main(){
 	TNODE * root = NULL;
-	insert(root, 4);
-	insert(root, 6);
-	insert(root, 9);
-	//buildTree(root, 10);
+	//root = buildTree(root, 10);
+	root = insert(root, 9);
+    root = insert(root, 4);
+    root = insert(root, 15);
+    root = insert(root, 6);
+    root = insert(root, 12);
+    root = insert(root, 17);
+    root = insert(root, 2);
+
+	preorder(root);
+	printf("\n");
 	inorder(root);
+	printf("\n");
+	postorder(root);
 	return 0;
 }
 
-void insert(TNODE * traverse, int item){
-	TNODE * newnode = (TNODE *)malloc(sizeof(TNODE));
-	
-	newnode->left = NULL;
-	newnode->data = item;
-	newnode->right = NULL;
-	if(traverse == NULL)
-			traverse = newnode;
-	else
-		if(item == traverse->data)
-			printf("Item Already Existing.\n");
-		else if(item < traverse->data)
-			insert(traverse->left, item);	
-		else
-			insert(traverse->right, item);
+TNODE * insert(TNODE * tree, int item){
+	TNODE * nn = NULL;
+	if(!tree){
+		nn = (TNODE *)malloc(sizeof(TNODE));
+		nn->left = nn->right = NULL;
+		nn->data = item;
+		tree = nn;
+	}
+	if(item > tree->data){
+		tree->right = insert(tree->right, item);
+	} else if(item < tree->data){
+		tree->left = insert(tree->left, item);
+	}
+	return tree;
 }
 
-void buildTree(TNODE * traverse, int len){
+TNODE * buildTree(TNODE * root, int len){
 	int i;
-	for(i=1; i<=10; i++) insert(traverse, i);	
+	for(i=10; i>0; i--) root = insert(root, i);	
 }
 
-void inorder(TNODE * traverse){
-	printf("BOOM");
-	if(traverse!=NULL){
-		printf("Foo");
-		inorder(traverse->left);
-		printf(" %d j", traverse->data);
-		inorder(traverse->right);
-		printf("Bar");
+void preorder(TNODE * tree){
+	if(tree){
+		printf(" %d ", tree->data);
+		preorder(tree->left);
+		preorder(tree->right);
+	}	
+}
+
+void inorder(TNODE * tree){
+	if(tree){
+		inorder(tree->left);
+		printf(" %d ", tree->data);
+		inorder(tree->right);
+	}	
+}
+
+void postorder(TNODE * tree){
+	if(tree){
+		postorder(tree->left);
+		postorder(tree->right);
+		printf(" %d ", tree->data);
 	}	
 }
 
