@@ -10,15 +10,35 @@ typedef struct tnode TNODE;
 int main(){	
 	TNODE ** root = NULL;
 	//insert(&root, 6);
-	build_tree(&root, 10);
-	printf("\nPreorder:");
-	//preorder(root);
-	printf("\nInorder:");
-	//inorder(root);
-	printf("\nPostorder:");
+	//build_tree(&root, 10);
+	insert(&root, 9);
+    insert(&root, 4);
+    insert(&root, 15);
+    insert(&root, 6);
+    insert(&root, 12);
+    insert(&root, 17);
+    insert(&root, 2);
+
+	printf("\nPreorder:\t");
+	preorder(root);
+	printf("\nInorder:\t");
+	inorder(root);
+	printf("\nPostorder:\t");
 	postorder(root);
-	//int f = search(TNODE *, int);
-	//f = delete_tn(TNODE *, int);
+	int data = 6;
+	printf("\nSearch:\t\t ");
+	if(search(root, data)){
+		printf("%d Found.\n", data);
+	}else{
+		printf("%d Not Found.\n", data);
+	}
+	delete_t(root);
+	printf("\nSearch:\t\t ");
+	if(search(root, data)){
+		printf("%d Found.\n", data);
+	}else{
+		printf("%d Not Found.\n", data);
+	}
 	return 0;
 }
 
@@ -63,17 +83,20 @@ void postorder(TNODE * tree){
 		printf(" %d ", tree->data);
 	}	
 }
-/*
-int search(TNODE ** tree, int data){
 
-	return 1;	
+int search(TNODE * tree, int data){
+	if(!tree) return 0;
+	else if(tree->data == data) return 1;
+	else if(tree->data > data) search(tree->left, data);
+	else search(tree->right, data);
 }
-int delete_tn(TNODE ** tree, int data){
-
-	return 1;	
+void delete_t(TNODE * tree){
+	if(tree){
+		delete_t(tree->left);
+		delete_t(tree->right);
+		free(tree);	
+	}	
 }
-*/
-
 
 
 
