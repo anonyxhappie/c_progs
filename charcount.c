@@ -1,6 +1,4 @@
 #include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
 int * ncharnline(FILE *);
 int main(){
 	FILE * f;
@@ -30,8 +28,7 @@ int * ncharnline(FILE * f){
 		}
 		count++;
 	}
-	a[0] = count;
-	a[1] = l;
+	a[0] = count; a[1] = l;
 	return a;	
 }
 
@@ -45,7 +42,6 @@ int nchar(FILE * f){
 			if(getc(f)=='/')
 				while((c=getc(f)) != '\n') continue;
 			else fseek(f, -1, SEEK_CUR);
-		
 		//for space and line removing
 		if(c==' ' || c=='\n') continue;
 		count++;
@@ -59,12 +55,11 @@ int nline(FILE * f){
 	int l = 0;
 	while((c=getc(f))!=EOF){
 		//for comment removing
-		if(c=='/'){
+		if(c=='/')
 			if(getc(f)=='/'){
 				while((c=getc(f)) != '\n') continue;
 				l-=2;
 			}else fseek(f, -1, SEEK_CUR);
-		}
 		//for space removing
 		if(c==' ') continue;
 		//for line count and removing
