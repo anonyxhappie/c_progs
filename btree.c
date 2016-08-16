@@ -9,6 +9,7 @@ struct tnode{
 	struct tnode * left, * right;
 };
 typedef struct tnode node;
+int count = 1;
 node * create_node(int item){
 	node * nn = (node *) malloc (sizeof(node));
 	nn->data = item;
@@ -16,12 +17,15 @@ node * create_node(int item){
 	return nn;
 }
 void insert(node ** root, int item){
-	if(!*root)
+	if(!*root){
 		*root = create_node(item);
-	if((*root)->data > item)
-		insert(&(*root)->left, item);
-	if((*root)->data < item)
-		insert(&(*root)->right, item);
+		count++;
+	}else{
+		if(count%2==0)
+			insert(&(*root)->left, item);
+		else
+			insert(&(*root)->right, item);
+	}
 }
 void preorder(node * tree){
 	node * curr = tree;
