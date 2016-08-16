@@ -10,14 +10,6 @@ int main(){
 	return 0;
 }
 
-int * g(int i){
-	int j, a[i];
-	for(j=0; j<i; j++){
-		a[j] = j;
-	}
-	return a;
-}
-
 int * ncharnline(FILE * f){
 	rewind(f);
 	char c;
