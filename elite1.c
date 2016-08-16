@@ -1,6 +1,7 @@
-//WAP multiply 2 numbers
+/** Multiplying Numbers
+* Input Two numbers
+*/
 #include<stdio.h>
-
 int main(){
 	//variable declaration
 	long long int a, b;
@@ -31,7 +32,7 @@ int main(){
 		bdigits[i] = bdigits[blength-i-1];
 		bdigits[blength-i-1] = temp;
 	}
-	//middle	
+	//middle
 	k=0, n = alength*blength;
 	for(i=blength-1; i>=0; i--, k++){
 		//initializing x to 0
@@ -43,7 +44,7 @@ int main(){
 		for(j=alength-1; j>=0; j--){
 			(temp = bdigits[i]*adigits[j]+rtp);
 			//printf("%d\n", temp);
-			if(!j && (temp > 9)){	
+			if(!j && (temp > 9)){
 				x=0;
 				while(temp){
 					sum[k][l++] = temp%10;
@@ -68,7 +69,7 @@ int main(){
 		for(;z<n; z++){
 			sum[k][l++]=0;
 		}
-		
+
 		for(z=0; z<n/2; z++){
 			temp = sum[k][z];
 			sum[k][z] = sum[k][n-1-z];
@@ -82,7 +83,7 @@ int main(){
 			temp+=sum[j][i]+rtp;
 			rtp=0;
 		}
-		if(!i && (temp > 9)){	
+		if(!i && (temp > 9)){
 			x=0;
 			while(temp){
 				result[z--] = temp%10;
@@ -121,7 +122,7 @@ int main(){
 	}
 	for(j=0; j<10; j++){
 		printf("%d ", result[j]);
-	}	
+	}
 	*/
 	i=0;
 	while(!result[i++]) continue;
@@ -142,5 +143,5 @@ int main(){
    69x
   ------
    713
-   
+
    */
