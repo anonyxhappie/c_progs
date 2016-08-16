@@ -1,49 +1,33 @@
 /** Multiplying Numbers
-* Input Two numbers
+* 	Input Two numbers
 */
 #include<stdio.h>
+unsigned long long * num_to_digits(unsigned long long int);
+unsigned long long int numlen(unsigned long long int);
 int main(){
 	//variable declaration
-	long long int a, b;
-	long long int bdigits[1000], adigits[1000], temp=0, i, j, k, l, x, z, n,
-	alength, blength, sum[100][1000], result[1000], rtp, r2[2];
-	long long int ttemp;
+	unsigned long long int a, b, * adigits, * bdigits, temp=0, i, j, k, l, x, z, n,
+	alength, blength, sum[100][1000], result[1000], rtp, * r2;
 	scanf("%lld %lld", &a, &b);
-	//numtoDigits
-	i=0; temp = a;
-	while(temp){
-		adigits[i++] = temp%10;
-		temp/=10;
-	}
-	alength = i; i=0; temp = b;
-	while(temp){
-		bdigits[i++] = temp%10;
-		temp/=10;
-	}
-	blength=i;
-	//reverse
-	for(i=0; i<alength/2; i++){
-		temp = adigits[i];
-		adigits[i] = adigits[alength-i-1];
-		adigits[alength-i-1] = temp;
-	}
-	for(i=0; i<blength/2; i++){
-		temp = bdigits[i];
-		bdigits[i] = bdigits[blength-i-1];
-		bdigits[blength-i-1] = temp;
-	}
+	unsigned long long int ttemp;
+	//length and numtoDigits
+	alength = numlen(a);
+	blength = numlen(b);
+	adigits = num_to_digits(a);
+	bdigits = num_to_digits(b);
+	printf("alen = %d\nblen = %d\n", alength, blength);
+	for(i=0; i<alength; i++) printf("%d ", adigits[i]);printf("\n");
+	for(i=0; i<alength; i++) printf("%d ", bdigits[i]);printf("\n");
 	//middle
 	k=0, n = alength*blength;
 	for(i=blength-1; i>=0; i--, k++){
-		//initializing x to 0
 		l=0;
-		for(z=0; z<k; z++){
-			sum[k][l++]=0;
-		}
+		for(z=0; z<k; z++) sum[k][l++]=0;
 		rtp=0;
 		for(j=alength-1; j>=0; j--){
-			(temp = bdigits[i]*adigits[j]+rtp);
-			//printf("%d\n", temp);
+			
+			temp = bdigits[i] * adigits[j] + rtp;
+			
 			if(!j && (temp > 9)){
 				x=0;
 				while(temp){
@@ -56,26 +40,19 @@ int main(){
 				sum[k][l++] = temp;
 				rtp=0;
 			}else{
-				x=0;
-				while(temp){
-					r2[x++] = temp%10;
-					temp/=10;
-				}
-				sum[k][l++] = r2[0];
-				rtp = r2[1];
+				r2 = num_to_digits(temp);
+				sum[k][l++] = r2[1];
+				rtp = r2[0];
 			}
 		}
-		//l--;
-		for(;z<n; z++){
-			sum[k][l++]=0;
-		}
-
+		for(;z<n; z++) sum[k][l++]=0;
 		for(z=0; z<n/2; z++){
 			temp = sum[k][z];
 			sum[k][z] = sum[k][n-1-z];
 			sum[k][n-1-z] = temp;
 		}
 	}
+	
 	z=n-1, rtp=0;
 	for(i=n-1; i>=0; i--){
 		temp=0;
@@ -95,50 +72,42 @@ int main(){
 			result[z--] = temp;
 			rtp=0;
 		}else{
-			x=0;
-			while(temp){
-				r2[x++] = temp%10;
-				temp/=10;
-			}
-			result[z--] = r2[0];
-			rtp = r2[1];
+			r2 = num_to_digits(temp);
+			result[z--] = r2[1];
+			rtp = r2[0];
 		}
 	}
-	/*
-	for(i=0; i<alength; i++){
-		printf("%d ", adigits[i]);
-	}
-	printf("\n\n");
-	for(i=0; i<blength; i++){
-		printf("%d ", bdigits[i]);
-	}
-	printf("\n\n");
-	*/
-	/*for(i=0; i<blength; i++){
-		for(j=0; j<10; j++){
-			printf("%d ", sum[i][j]);
-		}
-		printf("\n");
-	}
-	for(j=0; j<10; j++){
-		printf("%d ", result[j]);
-	}
-	*/
 	i=0;
 	while(!result[i++]) continue;
-	z=0, i--;
-	ttemp=0;
-	while(i<n) ttemp=ttemp*10+result[i++];
-
-	printf("%lld\n", ttemp);
+	i--, ttemp=0;
+	while(i<n){
+		printf("%d", result[i]);
+		ttemp=ttemp*10+result[i++];	
+	} 
+	printf("\n\n");
+	printf("%lld\n%d", ttemp, numlen(ttemp));
+	
 	return 0;
 }
 
+unsigned long long int * num_to_digits(unsigned long long int fnum){
+	unsigned long long int a[1000], i=numlen(fnum)-1;
+	while(fnum){
+		a[i--] = fnum%10;
+		fnum/=10;
+	}
+	return a;
+}
+
+unsigned long long int numlen(unsigned long long int fnum){
+	unsigned long long int i=1;
+	while((fnum=fnum/10)) i++;
+	return i;
+}
 /*
 	23
    x31
-  --
-  ----
+  ------
     23
    69x
   ------
