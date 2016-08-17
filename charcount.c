@@ -2,7 +2,7 @@
 int * ncharnline(FILE *);
 int main(){
 	FILE * f;
-	f = fopen("out.txt", "r");
+	f = fopen("in.txt", "r");
 	printf("Characters : %d or %d\n", nchar(f), *ncharnline(f));
 	printf("Lines : %d or %d\n", nline(f), *(ncharnline(f)+1));
 	return 0;

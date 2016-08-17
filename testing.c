@@ -5,10 +5,14 @@ int main(){
 	
 	long long int num = 1237;
 	int i, len = numlen(num), * b = num_to_digits(num);
-	printf("Len %d\n", len);
-	for(i=0; i<len; i++){
-		printf("%d\n", b[i]);
-	}
+	
+	alength = numlen(a);
+	blength = numlen(b);
+	adigits = num_to_digits(a);
+	bdigits = num_to_digits(b);
+	printf("alen = %d\nblen = %d\n", alength, blength);
+	for(i=0; i<alength; i++) printf("%d ", adigits[i]);printf("\n");
+	for(i=0; i<alength; i++) printf("%d ", bdigits[i]);printf("\n");
 	return 0;
 }
 
