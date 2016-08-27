@@ -14,7 +14,7 @@ int main(){
 		scanf("%d", &m);
 		int a, b; float c, fa, fb;
 		printf("Case #%d:\n", x);
-		for(i=0; i<m; i++){
+		for(z=0; z<m; z++){
 			scanf("%d %d", &a, &b);
 			c = (float)a/b;
 			int flag = 0;
