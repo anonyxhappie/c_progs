@@ -2,8 +2,8 @@
 
 int main(){
 	int x=0, t, i, j, k, l, z, c, nP, nE, nT; //gears on the pedals, extra, and tire gear
-	freopen("int.txt", "r", stdin);
-	//freopen("out.txt", "w", stdout);
+	freopen("in.txt", "r", stdin);
+	freopen("out.txt", "w", stdout);
 	scanf("%d", &t);
 	while(x++<t){
 		scanf("%d %d %d", &nP, &nE, &nT);
