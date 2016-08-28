@@ -41,17 +41,18 @@ bool playBurnedChess(char * CB, int R, int C, int i, int j, bool flag){
 }
 
 void getKingIndex(char * CB, int R, int C, int * pKx, int * pKy){
-int i, j, bflag = 0;
-	for(i=0; i<R; i++){ 
-		for(j=0; j<C; j++){
-			if(*(CB+ i*R + j) == 'K'){
-				*pKx = i; *pKy = j;
-				bflag = 1;
-				break;
-			}		
-		}
-		if(bflag) break;
+int i, j;
+bool bflag = false;
+for(i=0; i<R; i++){ 
+	for(j=0; j<C; j++){
+		if(*(CB+ i*R + j) == 'K'){
+			*pKx = i; *pKy = j;
+			bflag = !bflag;
+			break;
+		}		
 	}
+	if(bflag) break;
+}
 }
 
 
