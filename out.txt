@@ -1,180 +1,100 @@
-Case #1:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #2:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #3:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #4:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #5:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #6:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #7:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #8:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #9:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #10:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #11:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #12:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #13:
-NO
-YES
-Case #14:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #15:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #16:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #17:
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-NO
-Case #18:
+Case #1: 66306
+Case #2: 791210
+Case #3: 5700
+Case #4: 156420
+Case #5: 742182
+Case #6: 655290
+Case #7: 916806
+Case #8: 706440
+Case #9: 147840
+Case #10: 428370
+Case #11: 3192
+Case #12: 16512
+Case #13: 62750
+Case #14: 297570
+Case #15: 271962
+Case #16: 15750
+Case #17: 115940
+Case #18: 0
+Case #19: 839972
+Case #20: 263682
+Case #21: 703082
+Case #22: 716562
+Case #23: 49506
+Case #24: 668306
+Case #25: 901550
+Case #26: 58322
+Case #27: 179352
+Case #28: 1260
+Case #29: 323192
+Case #30: 517680
+Case #31: 276150
+Case #32: 812702
+Case #33: 476790
+Case #34: 0
+Case #35: 343982
+Case #36: 0
+Case #37: 3906
+Case #38: 257556
+Case #39: 203852
+Case #40: 153272
+Case #41: 75900
+Case #42: 723350
+Case #43: 406406
+Case #44: 0
+Case #45: 0
+Case #46: 3540
+Case #47: 21756
+Case #48: 246512
+Case #49: 434940
+Case #50: 658532
+Case #51: 951600
+Case #52: 255530
+Case #53: 830832
+Case #54: 792990
+Case #55: 32580
+Case #56: 836310
+Case #57: 510510
+Case #58: 142506
+Case #59: 838140
+Case #60: 522006
+Case #61: 814506
+Case #62: 0
+Case #63: 135792
+Case #64: 535092
+Case #65: 138012
+Case #66: 895862
+Case #67: 740460
+Case #68: 20
+Case #69: 3782
+Case #70: 333506
+Case #71: 926406
+Case #72: 64262
+Case #73: 478172
+Case #74: 424452
+Case #75: 3080
+Case #76: 54522
+Case #77: 46440
+Case #78: 277202
+Case #79: 540960
+Case #80: 3540
+Case #81: 11130
+Case #82: 851006
+Case #83: 23562
+Case #84: 220430
+Case #85: 520562
+Case #86: 364212
+Case #87: 375156
+Case #88: 45156
+Case #89: 656910
+Case #90: 12210
+Case #91: 121452
+Case #92: 104652
+Case #93: 20022
+Case #94: 674862
+Case #95: 29412
+Case #96: 663410
+Case #97: 111222
+Case #98: 331200
+Case #99: 8556
+Case #100: 20

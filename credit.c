@@ -1,8 +1,8 @@
 #include<stdio.h>
 
 int main(){
-	freopen("in.txt", "r", stdin);
-	freopen("out.txt", "w", stdout);
+	freopen("int.txt", "r", stdin);
+	//freopen("out.txt", "w", stdout);
 	int t, x=0;
 	scanf("%d", &t);
 	while(x++<t){
