@@ -1,25 +1,26 @@
 #include<iostream>
 void getKingIndex(char * CB, int R, int C, int * pKx, int * pKy);
 bool playBurnedChess(char * CB, int R, int C, int i, int j, bool flag);
+int R, C;
+char CB[100][100];
+int t, x=0;
 using namespace std;
 int main(){
 	freopen("int.txt", "r", stdin);
 	//freopen("out.txt", "w", stdout);
-	int t, x=0;
 	cin >> t;
-	while(x++<t){
-		int i, j, R, C; 
+	while(x++<t){ 
 		bool flag = true; //true Alice , false Bob
 		cin >> R >> C;
-		char CB[R][C];
 		for(i=0; i<R; i++) for(j=0; j<C; j++) cin >> CB[i][j];
 		//for(i=0; i<R; i++){ for(j=0; j<C; j++) cout << CB[i][j]; cout << endl; }	
 		int Kx, Ky;
-		getKingIndex(* CB, R, C, &Kx, &Ky);
-		flag = playBurnedChess(* CB, R, C, Kx, Ky, flag);
+		getKingIndex(&Kx, &Ky);
+		//flag = playBurnedChess(* CB, R, C, Kx, Ky, flag);
+		//cout << Kx << " " << Ky << endl;
 		//cout << flag << endl;
-		if(flag) cout << "Alice\n";
-		else cout << "Bob\n";
+		//if(flag) cout << "Alice\n";
+		//else cout << "Bob\n";
 	}
 	return 0;
 }
@@ -40,19 +41,18 @@ bool playBurnedChess(char * CB, int R, int C, int i, int j, bool flag){
 	return flag; 
 }
 
-void getKingIndex(char * CB, int R, int C, int * pKx, int * pKy){
-int i, j;
+void getKingIndex(int * pKx, int * pKy){
 bool bflag = false;
-for(i=0; i<R; i++){ 
-	for(j=0; j<C; j++){
-		if(*(CB+ i*R + j) == 'K'){
-			*pKx = i; *pKy = j;
-			bflag = !bflag;
-			break;
-		}		
+	for(int i=0; i<R; i++){ 
+		for(int j=0; j<C; j++){
+			if(*(CB+ i*R + j) == 'K'){
+				*pKx = i; *pKy = j;
+				bflag = !bflag;
+				break;
+			}		
+		}
+		if(bflag) break;
 	}
-	if(bflag) break;
-}
 }
 
 
