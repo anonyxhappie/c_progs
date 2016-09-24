@@ -1,9 +1,8 @@
 #include<stdio.h>
-int main(){
+void main(){
 	//freopen("in.txt", "r", stdin);
 	//freopen("out.txt", "w", stdout);
-	char num[1000] = "42115"
-	
-	return 0;
+//	char num[1000] = "42115";
+//	printf("%s", num);
 }
 
