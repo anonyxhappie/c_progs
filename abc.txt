@@ -1,0 +1,48 @@
+abc.txt
+a.out
+c_progs
+fb_pics
+link.c
+PEC JS
+README.license
+tree.png
+Welcome.desktop
+total 1176
+-rw-r--r-- 1 anonyxhappie anonyxhappie      84 Oct  1 01:55 abc.txt
+-rwxr-xr-x 1 anonyxhappie anonyxhappie    6944 Oct  1 01:54 a.out
+drwxr-xr-x 3 anonyxhappie anonyxhappie    4096 Oct  1 01:39 c_progs
+drwxr-xr-x 2 anonyxhappie anonyxhappie    4096 Oct  1 01:31 fb_pics
+-rw-r--r-- 1 anonyxhappie anonyxhappie     165 Oct  1 01:54 link.c
+drwxrwxrwx 2 anonyxhappie anonyxhappie    4096 Sep 26 19:24 PEC JS
+-rw-r--r-- 1 anonyxhappie anonyxhappie   37100 Sep 22 04:22 README.license
+-rw-r--r-- 1 anonyxhappie anonyxhappie 1127996 Sep 27 22:51 tree.png
+-rwxr-xr-x 1 anonyxhappie anonyxhappie     217 Sep 22 04:22 Welcome.desktop
+abc.txt
+a.out
+c_progs
+fb_pics
+link.c
+PEC JS
+README.license
+tree.png
+Welcome.desktop
+total 1176
+-rw-r--r-- 1 anonyxhappie anonyxhappie     803 Oct  1 01:55 abc.txt
+-rwxr-xr-x 1 anonyxhappie anonyxhappie    6920 Oct  1 01:56 a.out
+drwxr-xr-x 3 anonyxhappie anonyxhappie    4096 Oct  1 01:39 c_progs
+drwxr-xr-x 2 anonyxhappie anonyxhappie    4096 Oct  1 01:31 fb_pics
+-rw-r--r-- 1 anonyxhappie anonyxhappie     150 Oct  1 01:56 link.c
+drwxrwxrwx 2 anonyxhappie anonyxhappie    4096 Sep 26 19:24 PEC JS
+-rw-r--r-- 1 anonyxhappie anonyxhappie   37100 Sep 22 04:22 README.license
+-rw-r--r-- 1 anonyxhappie anonyxhappie 1127996 Sep 27 22:51 tree.png
+-rwxr-xr-x 1 anonyxhappie anonyxhappie     217 Sep 22 04:22 Welcome.desktop
+total 1176
+-rw-r--r-- 1 anonyxhappie anonyxhappie    1438 Oct  1 01:56 abc.txt
+-rwxr-xr-x 1 anonyxhappie anonyxhappie    6936 Oct  1 01:57 a.out
+drwxr-xr-x 3 anonyxhappie anonyxhappie    4096 Oct  1 01:39 c_progs
+drwxr-xr-x 2 anonyxhappie anonyxhappie    4096 Oct  1 01:31 fb_pics
+-rw-r--r-- 1 anonyxhappie anonyxhappie     163 Oct  1 01:57 link.c
+drwxrwxrwx 2 anonyxhappie anonyxhappie    4096 Sep 26 19:24 PEC JS
+-rw-r--r-- 1 anonyxhappie anonyxhappie   37100 Sep 22 04:22 README.license
+-rw-r--r-- 1 anonyxhappie anonyxhappie 1127996 Sep 27 22:51 tree.png
+-rwxr-xr-x 1 anonyxhappie anonyxhappie     217 Sep 22 04:22 Welcome.desktop
