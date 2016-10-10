@@ -1,6 +1,7 @@
 #include<stdio.h>
 typedef long long ll;
 typedef short bool;
+ll mod = 1000000007;
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 #define nLOOP(i, n) for(i=0; i<n; i++)
@@ -16,11 +17,18 @@ int main(){
 	ll t, i;
 	nSCAN(t)
 	while(t--){
-		ll n;
+		ll n, nextNum=-99999;
 		nSCAN(n)
 		ll a[n];
-		nLOOP(i, n){
-
+		nLOOP(i, n)	nSCAN(a[i])
+		if((nextNum = nextNumOfAP(a)) && nextNum != -99999) {
+			
+		} else if((nextNum = nextNumOfAP(a)) && nextNum != -99999) {
+			
+		} else if(nextNum = nextNumOfAP(a)) && nextNum != -99999) {
+			
+		}else{
+			
 		}
 	}
 	return 0;

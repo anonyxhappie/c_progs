@@ -25,7 +25,7 @@ int main(){
 	int i,j;
 	for(i=0; i<N; i++){
 		for(j=0; j<N; j++){
-			result[i][j] = ' ';
+			result[i][j] = '-';
 			printf("%c ", a[i][j]);
 		}
 		printf("\n");
@@ -57,7 +57,7 @@ int search_string(){
 
 int search(int r, int c, int index){
 	//when no match to any index or non-zero(already occupied)
-	if(result[r][c] != ' ' || string[index] != a[r][c]) return false;
+	if(result[r][c] != '-' || string[index] != a[r][c]) return false;
 	// final index reached
 	if(index == len - 1){
 		result[r][c] = a[r][c]; //result matrix final value
@@ -74,7 +74,7 @@ int search(int r, int c, int index){
 	if(r + 1 <  N  && c - 1 >= 0  &&  search(r + 1, c - 1, index + 1)) return true; //down-left
 	if(r + 1 <  N  && c + 1 <  N  &&  search(r + 1, c + 1, index + 1)) return true;	 //down-right
     
-	result[r][c] = ' '; //to set the wrong path value ' '
+	result[r][c] = '-'; //to set the wrong path value ' '
 	return false;
 }
 
